@@ -39,6 +39,9 @@ def get_neighbors(df, idx):
 	return np.array(n)
 
 df=pd.DataFrame.from_dict(dataset)
+df.to_csv("df_from_main_py.csv", index=False)
+print('df from main py is saved')
+
 n_train = get_neighbors(df, idx_train)
 n_valid = get_neighbors(df, idx_valid)
 n_test = get_neighbors(df, idx_test)
@@ -179,4 +182,5 @@ with torch.no_grad():
         
 df['pred'] = df['pred'].map(lambda x: x[0].tolist())
 df.to_csv('data_preds.csv', index=False)
+print('data_preds has been saved from main.py')
 plot_predictions(df, idx_test, 'Testing')
