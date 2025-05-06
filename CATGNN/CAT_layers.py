@@ -165,7 +165,7 @@ class Elements_Attention(torch.nn.Module):
 		'''
 		Global-Attention Mechanism based on the crystal's elemental composition
 		'''
-		super(Elements_Ratio_Attention, self).__init__()
+		super(Elements_Attention, self).__init__()
 		self._cgcnn_embed=nn.Linear(103, 103)
 		self.softplus1 = nn.Softplus()
 		self.node_layer1 = nn.Linear(neurons+103,32)
