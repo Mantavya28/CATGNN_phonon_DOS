@@ -86,5 +86,6 @@ def plot_predictions(df, idx, title=None):
     fig.tight_layout()
     fig.subplots_adjust(hspace=0.6)
     fig.savefig(title+'_set_predictions.jpg', dpi=700)
+    print('set predictions has been saved as jpg file')
     #if title: fig.suptitle(title, ha='center', y=1., fontsize=fontsize + 4)
     #fig.savefig(title+'_set_predictions.jpg', dpi=600)
