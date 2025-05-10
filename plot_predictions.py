@@ -13,12 +13,10 @@ from tqdm import tqdm
 bar_format = '{l_bar}{bar:10}{r_bar}{bar:-10b}'
 tqdm.pandas(bar_format=bar_format)
 
-
 # standard formatting for plots
 fontsize = 16
 textsize = 14
 sub = str.maketrans("0123456789", "0123456789")
-plt.rcParams['font.family'] = 'lato'
 plt.rcParams['axes.linewidth'] = 1
 plt.rcParams['mathtext.default'] = 'regular'
 plt.rcParams['xtick.bottom'] = True
@@ -28,7 +26,6 @@ plt.rcParams['axes.labelsize'] = fontsize
 plt.rcParams['xtick.labelsize'] = fontsize
 plt.rcParams['ytick.labelsize'] = fontsize
 plt.rcParams['legend.fontsize'] = textsize
-
 
 # colors for datasets
 palette = ['#285fb2', '#f3b557', '#67c791', '#c85c46']

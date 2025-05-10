@@ -1,17 +1,15 @@
 import os
+
 import yaml
 import numpy as np
-
 import pandas as pd
 from tqdm import tqdm
 bar_format = '{l_bar}{bar:10}{r_bar}{bar:-10b}'
 tqdm.pandas(bar_format=bar_format)
-
-from jarvis.core.atoms import Atoms
+from jarvis.core.atoms import Atoms, lattice_coords_transformer
 
 #from process_data import *
 from process_data import process_data_and_split, get_train_valid_test_dataloaders
-
 
 f = open('model_params.yaml')
 model_params = yaml.safe_load(f)
@@ -73,7 +71,6 @@ from typing import Union, Optional, Dict
 
 default_dtype = torch.float64
 torch.set_default_dtype(default_dtype)
-
 
 model = PeriodicNetwork(
 	in_dim=model_params['in_dim'], 
@@ -162,7 +159,6 @@ train_val_loss_plot(output_dir, device, run_name, filename='history.jpg', dpi=10
 new_model=model
 new_model.load_state_dict(torch.load(os.path.join(output_dir, run_name+'_best_model.pth')))
 output_test_loader_results(test_loader=test_dataloader, net=new_model, device=device, filename=os.path.join(output_dir, 'test_set_props.csv'))
-
 
 dataloader = DataLoader(df['data'].values, batch_size=256)
 df['mse'] = 0.
