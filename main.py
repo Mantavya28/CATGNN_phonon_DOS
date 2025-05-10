@@ -183,6 +183,4 @@ with torch.no_grad():
 df['pred'] = df['pred'].map(lambda x: x[0].tolist())
 df.to_csv('data_preds.csv', index=False)
 print('data_preds has been saved from main.py')
-print("Number of indices:", len(idx))
-print("Sample MSEs:", df.iloc[idx]['mse'].head())
 plot_predictions(df, idx_test, 'Testing')
